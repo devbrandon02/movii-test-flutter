@@ -29,7 +29,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(isLoading: true));
 
       try {
-        await repository.updateBirthDate("1999, 9, 2");
+        await repository.updateBirthDate(DateTime(1999, 9, 2));
         emit(
           state.copyWith(
             isLoading: false,

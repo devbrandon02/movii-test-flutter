@@ -13,13 +13,11 @@ class CleverTapRepository {
     print("Perfil creado en CleverTap: $profile");
   }
 
-  Future<void> updateBirthDate(String date) async {
+  Future<void> updateBirthDate(DateTime date) async {
     try {
-      var profile = {
-        'dob': CleverTapPlugin.getCleverTapDate(DateTime.parse(date)),
-      };
+      var profile = {'dob': CleverTapPlugin.getCleverTapDate(date)};
       await CleverTapPlugin.profileSet(profile);
-      print("DOB enviada correctamente:");
+      print("DOB enviada correctamente: $date");
     } catch (e) {
       print("Error en updateBirthDate: $e");
     }
